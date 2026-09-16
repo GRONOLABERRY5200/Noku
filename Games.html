@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noku</title>
+    <link rel="icon" type="image/x-icon" href="coy.png">
+    <style>
+        /* Reset default browser margins */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Repeating background image */
+        body {
+            background-image: url('SB306.jpeg');
+            background-repeat: repeat;
+            background-size: auto; 
+            background-attachment: fixed;
+        }
+
+        /* Main container that takes up the whole screen */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* The red header */
+        .top-header {
+            background-color: #ff0000; /* Red */
+            color: black;
+            border-bottom: 4px solid black; 
+            padding: 10px 20px;
+            flex-shrink: 0; 
+        }
+
+        /* Style for the Noku text */
+        .top-header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: normal;
+        }
+
+        /* The large content area at the bottom */
+        .main-content {
+            flex-grow: 1; 
+            background-color: transparent; 
+
+            /* Center the grid of cubes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* New Grid Container for the Cubes */
+        .games-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            grid-template-rows: 1fr 1fr;    /* Two rows */
+            gap: 40px; /* Space between the boxes */
+            width: 100%;
+            max-width: 900px; /* Prevents it from getting too huge on wide screens */
+            aspect-ratio: 16 / 10; /* Keeps the overall grid shape */
+        }
+
+        /* Individual Cube Link Styling */
+        .game-box {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 5px solid black; /* The black border from your image */
+            box-sizing: border-box; /* Includes border in width/height calculation */
+            background-color: white; /* Fallback color */
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden; /* Ensures image respects border radius if added */
+        }
+
+        /* Image inside the cube */
+        .game-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image fills the box without stretching */
+            display: block;
+        }
+
+        /* Hover effect */
+        .game-box:hover {
+            transform: scale(1.02); /* Slightly enlarges on hover */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        /* Responsive Design: Stack vertically on small screens */
+        @media (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: 1fr; /* One column */
+                grid-template-rows: auto;
+                gap: 20px;
+            }
+            .game-box {
+                aspect-ratio: 16 / 9; /* Keep a nice shape on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <!-- The Header -->
+        <header class="top-header">
+            <h1>Noku</h1>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+            <!-- The Grid of Games -->
+            <div class="games-grid">
+                
+                <!-- Box 1 -->
+                <a href="game1.html" class="game-box">
+                    <!-- Replace src with your image path -->
+                    <img src="https://placehold.co/600x400/222222/FFFFFF?text=Game+1" alt="Game 1">
+                </a>
+
+                <!-- Box 2 -->
+                <a href="game2.html" class="game-box">
+                    <img src="https://placehold.co/600x400/444444/FFFFFF?text=Game+2" alt="Game 2">
+                </a>
+
+                <!-- Box 3 -->
+                <a href="game2.html" class="game-box">
+                    <img src="https://placehold.co/600x400/444444/FFFFFF?text=Game+2" alt="Game 2">
+                </a>
+
+                <!-- Box 4 -->
+                <a href="game3.html" class="game-box">
+                    <img src="https://placehold.co/600x400/666666/FFFFFF?text=Game+3" alt="Game 3">
+                </a>
+
+                <!-- Box 5 -->
+                <a href="game4.html" class="game-box">
+                    <img src="https://placehold.co/600x400/888888/FFFFFF?text=Game+4" alt="Game 4">
+                </a>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

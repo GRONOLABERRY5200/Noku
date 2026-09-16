@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noku</title>
+    <link rel="icon" type="image/x-icon" href="coy.png">
+    <style>
+        /* Reset default browser margins */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main container that takes up the whole screen */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* The red header */
+        .top-header {
+            background-color: #ff0000; /* Red */
+            color: black;
+            border-bottom: 4px solid black; /* The black line at the bottom */
+            padding: 10px 20px;
+            flex-shrink: 0; /* Prevents header from shrinking */
+        }
+
+        /* Style for the Noku text */
+        .top-header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: normal;
+        }
+
+        /* The large content area at the bottom */
+        .main-content {
+            flex-grow: 1; /* Takes up all remaining space (the "bottom" majority) */
+            background-color: white;
+            
+            /* If you want your content to physically sit at the very bottom of this area: */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Pushes content to the bottom */
+            align-items: center; /* Centers content horizontally */
+            padding-bottom: 50px; /* Space between content and the bottom edge */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <!-- The Header -->
+        <header class="top-header">
+            <h1>Noku</h1>
+        </header>
+
+        <iframe src="https://japansoda.blogspot.com/"
+       width="100%"
+       height="800"
+       style="border:none;">
+   <p>Your browser does not support iFrames.</p>
+</iframe>
