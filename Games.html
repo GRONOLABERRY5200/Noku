@@ -10,15 +10,16 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100%;
             font-family: Arial, sans-serif;
         }
 
-        /* Repeating background image */
+        /* Full-screen cover background image */
         body {
-            background-image: url('SB306.jpeg');
-            background-repeat: repeat;
-            background-size: auto; 
+            background-image: url('https://www.image2url.com/r2/default/images/1789949965168-a6e00100-78cf-4154-ad42-d672ede579f5.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
         }
 
@@ -26,16 +27,16 @@
         .layout-container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         /* The red header */
         .top-header {
             background-color: #ff0000; /* Red */
             color: black;
-            border-bottom: 4px solid black; 
+            border-bottom: 4px solid black;
             padding: 10px 20px;
-            flex-shrink: 0; 
+            flex-shrink: 0;
         }
 
         /* Style for the Noku text */
@@ -47,63 +48,122 @@
 
         /* The large content area at the bottom */
         .main-content {
-            flex-grow: 1; 
-            background-color: transparent; 
+            flex-grow: 1;
+            background-color: transparent;
 
-            /* Center the grid of cubes */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            padding: 20px;
+            gap: 60px;
+            padding: 60px 40px;
+            box-sizing: border-box;
         }
 
-        /* New Grid Container for the Cubes */
+        .section-heading {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: normal;
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .section-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* =========================
+           GAMES GRID (2x2)
+           ========================= */
+
         .games-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns */
-            grid-template-rows: 1fr 1fr;    /* Two rows */
-            gap: 40px; /* Space between the boxes */
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 40px;
             width: 100%;
-            max-width: 900px; /* Prevents it from getting too huge on wide screens */
-            aspect-ratio: 16 / 10; /* Keeps the overall grid shape */
+            max-width: 900px;
+            aspect-ratio: 16 / 10;
         }
 
-        /* Individual Cube Link Styling */
         .game-box {
             display: block;
             width: 100%;
             height: 100%;
-            border: 5px solid black; /* The black border from your image */
-            box-sizing: border-box; /* Includes border in width/height calculation */
-            background-color: white; /* Fallback color */
+            border: 5px solid black;
+            box-sizing: border-box;
+            background-color: white;
             transition: transform 0.2s, box-shadow 0.2s;
-            overflow: hidden; /* Ensures image respects border radius if added */
+            overflow: hidden;
         }
 
-        /* Image inside the cube */
         .game-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures image fills the box without stretching */
+            object-fit: cover;
             display: block;
         }
 
-        /* Hover effect */
         .game-box:hover {
-            transform: scale(1.02); /* Slightly enlarges on hover */
+            transform: scale(1.02);
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             cursor: pointer;
         }
 
-        /* Responsive Design: Stack vertically on small screens */
         @media (max-width: 600px) {
             .games-grid {
-                grid-template-columns: 1fr; /* One column */
+                grid-template-columns: 1fr;
                 grid-template-rows: auto;
                 gap: 20px;
             }
             .game-box {
-                aspect-ratio: 16 / 9; /* Keep a nice shape on mobile */
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        /* =========================
+           IMAGE LINK GRID (3 columns)
+           ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 265px);
+            gap: 24px 40px;
+        }
+
+        .cube {
+            display: block;
+            width: 265px;
+            height: 220px;
+            border: 5px solid #000;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: #999999;
+        }
+
+        .cube img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cube:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 265px);
+            }
+        }
+
+        @media (max-width: 620px) {
+            .grid {
+                grid-template-columns: 265px;
             }
         }
     </style>
@@ -118,36 +178,41 @@
 
         <!-- Main content area -->
         <main class="main-content">
-            
-            <!-- The Grid of Games -->
-            <div class="games-grid">
-                
-                <!-- Box 1 -->
-                <a href="game1.html" class="game-box">
-                    <!-- Replace src with your image path -->
-                    <img src="https://placehold.co/600x400/222222/FFFFFF?text=Game+1" alt="Game 1">
-                </a>
 
-                <!-- Box 2 -->
-                <a href="game2.html" class="game-box">
-                    <img src="https://placehold.co/600x400/444444/FFFFFF?text=Game+2" alt="Game 2">
-                </a>
 
-                <!-- Box 3 -->
-                <a href="game2.html" class="game-box">
-                    <img src="https://placehold.co/600x400/444444/FFFFFF?text=Game+2" alt="Game 2">
-                </a>
+            <!-- Image link grid section -->
+            <div class="section-block">
+                <h2 class="section-heading">Games</h2>
+                <div class="grid">
 
-                <!-- Box 4 -->
-                <a href="game3.html" class="game-box">
-                    <img src="https://placehold.co/600x400/666666/FFFFFF?text=Game+3" alt="Game 3">
-                </a>
+                    <!-- Change href="" to the page you want to open.
+                         Change src="" to the image you want displayed. -->
 
-                <!-- Box 5 -->
-                <a href="game4.html" class="game-box">
-                    <img src="https://placehold.co/600x400/888888/FFFFFF?text=Game+4" alt="Game 4">
-                </a>
+                    <a class="cube" href="page1.html">
+                        <img src="image1.jpg" alt="Image 1">
+                    </a>
 
+                    <a class="cube" href="page2.html">
+                        <img src="image2.jpg" alt="Image 2">
+                    </a>
+
+                    <a class="cube" href="page3.html">
+                        <img src="image3.jpg" alt="Image 3">
+                    </a>
+
+                    <a class="cube" href="page4.html">
+                        <img src="image4.jpg" alt="Image 4">
+                    </a>
+
+                    <a class="cube" href="page5.html">
+                        <img src="image5.jpg" alt="Image 5">
+                    </a>
+
+                    <a class="cube" href="page6.html">
+                        <img src="image6.jpg" alt="Image 6">
+                    </a>
+
+                </div>
             </div>
 
         </main>
